@@ -1,9 +1,9 @@
-import { Server } from "@modelcontextprotocol/sdk/server/index.js"
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
+import { Server } from "@mcp/server"
+import { StdioServerTransport } from "@mcp/stdio"
 import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
-} from "@modelcontextprotocol/sdk/types.js"
+} from "@mcp/types"
 
 // Load credentials at startup (side-effect import)
 import "../credentials.ts"
@@ -47,7 +47,7 @@ export async function startServer(): Promise<void> {
   )
 
   // Wire tools/list
-  server.setRequestHandler(ListToolsRequestSchema, async () => {
+  server.setRequestHandler(ListToolsRequestSchema, () => {
     return {
       tools: registry.getDefinitions(),
     }

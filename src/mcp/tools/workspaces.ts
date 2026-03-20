@@ -13,18 +13,18 @@ export function registerWorkspaceTools(registry: ToolRegistry): void {
         properties: {},
       },
     },
-    async () => {
+    () => {
       try {
         const info = getWorkspaceInfo()
         const result = {
           workspaces: info.workspaces,
           defaultWorkspace: info.defaultWorkspace ?? null,
         }
-        return {
+        return Promise.resolve({
           content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
-        }
+        })
       } catch (error) {
-        return formatError(error)
+        return Promise.resolve(formatError(error))
       }
     },
   )

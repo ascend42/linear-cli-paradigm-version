@@ -19,7 +19,9 @@
     "mcp": "deno run --allow-all --quiet src/mcp/server.ts"
   },
   "imports": {
-    "@modelcontextprotocol/sdk/": "npm:@modelcontextprotocol/sdk@^1.12.1/",
+    "@mcp/server": "npm:@modelcontextprotocol/sdk@^1.12.1/server/index.js",
+    "@mcp/stdio": "npm:@modelcontextprotocol/sdk@^1.12.1/server/stdio.js",
+    "@mcp/types": "npm:@modelcontextprotocol/sdk@^1.12.1/types.js",
     "@cliffy/ansi": "jsr:@cliffy/ansi@^1.0.0-rc.8",
     "@cliffy/command": "jsr:@cliffy/command@^1.0.0-rc.8",
     "@cliffy/internal": "jsr:@cliffy/internal@^1.0.0-rc.8",
