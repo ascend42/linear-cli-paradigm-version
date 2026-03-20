@@ -1,0 +1,26 @@
+purpose: MCP server for Linear CLI — exposes Linear API tools over Model Context Protocol
+symbols:
+  - "#mcp-server": MCP server entry point and stdio transport
+  - "#mcp-client-factory": Workspace-aware GraphQL client factory
+  - "#mcp-error-handler": MCP-safe error formatting (no process exit)
+  - "#mcp-registry": Tool definition accumulator for multi-file registration
+tools:
+  - linear_list_workspaces: List configured workspaces
+  - linear_list_teams: List teams in a workspace
+  - linear_list_issues: List issues filtered by team/state/assignee/project
+  - linear_view_issue: Get full issue details by identifier
+  - linear_create_issue: Create a new issue
+  - linear_update_issue: Update an existing issue
+  - linear_search_issues: Full-text search across issues
+  - linear_list_projects: List projects filtered by team/status
+  - linear_view_project: Get full project details
+  - linear_list_cycles: List cycles for a team
+  - linear_list_documents: List documents filtered by project
+  - linear_view_document: Get document with markdown content
+  - linear_list_labels: List issue labels for a team
+  - linear_list_comments: List comments on an issue
+  - linear_add_comment: Add a comment to an issue
+notes:
+  - Every tool accepts optional `workspace` param for multi-workspace support
+  - GraphQL queries are self-contained in tool files (not reusing linear.ts helpers)
+  - Errors are caught and returned as MCP error responses, never thrown to transport

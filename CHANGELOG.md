@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+### Added
+
+- MCP (Model Context Protocol) server for AI assistants with multi-workspace support
+  - 15 tools: workspaces, teams, issues (list/view/create/update/search), projects (list/view), cycles, documents (list/view), labels, comments (list/add)
+  - Every tool accepts optional `workspace` param to target any configured workspace
+  - Run via `linear mcp serve` or `deno run --allow-all src/mcp/server.ts`
+  - Reuses existing credential store (OS keyring) for seamless multi-workspace auth
+
 ## [1.11.1] - 2026-03-06
 
 ### Added
